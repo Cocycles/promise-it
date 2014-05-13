@@ -3,7 +3,7 @@
     "description": "Promises generation made easy with less code and complexity",
     "version": "0.1.0",
     "scripts": {
-        "test": "mocha -R spec test/**/*.js test/*.js"
+        "test": "mocha -R spec test/**/*.js"
     },
     "license": "MIT",
     "tags": [
