@@ -22,7 +22,7 @@
         "rewire": "^2.0.0",
         "sinon-chai": "^2.5.0"
     },
-    "repository": "https://github.com/CoCycles/promise-me.git",
+    "repository": "https://github.com/CoCycles/promise-it.git",
     "engines": {
         "node": "~0.10.x"
     }
