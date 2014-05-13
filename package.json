@@ -1,0 +1,29 @@
+{
+    "name": "promise-me",
+    "description": "Promises generation made easy with less code and complexity",
+    "version": "0.1.0",
+    "scripts": {
+        "test": "mocha -R spec test/**/*.js test/*.js"
+    },
+    "license": "MIT",
+    "tags": [
+        "promise",
+        "q",
+        "defer"
+    ],
+    "author": "Ran Mizrahi <ran@cocycles.com>",
+    "dependencies": {
+        "q": "^1.0.1"
+    },
+    "devDependencies": {
+        "mocha": "^1.18.2",
+        "chai": "^1.9.1",
+        "sinon": "^1.9.1",
+        "rewire": "^2.0.0",
+        "sinon-chai": "^2.5.0"
+    },
+    "repository": "https://github.com/CoCycles/promise-me.git",
+    "engines": {
+        "node": "~0.10.x"
+    }
+}
