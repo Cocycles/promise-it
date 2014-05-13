@@ -37,10 +37,10 @@ $ npm install promise-me
 
 ## API Reference
 
-### promiseMe(function: function, params: array, context: object)
+#### promiseMe(function: function, params: array, context: object)
 Calls the given function (with provided params and context) and returns a promise until the callback is called.
 
-### promiseMe.all([{ function: function, params: array, context: object }])
+#### promiseMe.all([{ function: function, params: array, context: object }])
 Calls array of functions (with provided params and context) and returns one promise that will resolve once all given functions were resolved.
 
 ## License
