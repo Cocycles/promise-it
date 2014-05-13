@@ -1,6 +1,6 @@
-# Promise Me
+# Promise It
 
-Promise Me makes generation of promises easier and with much less code by providing simplified API for converting
+Promise It makes generation of promises easier and with much less code by providing simplified API for converting
 callback-based async functions to promises using the great Q module.
 
 ## Why Do I Need It?
@@ -21,11 +21,11 @@ function someFunc() {
 }
 ```
 
-with Promise Me it's much easier:
+with Promise It it's much easier:
 
 ```javascript
 function someFunc() {
-  return promiseMe(call.something);
+  return promiseIt(call.something);
 }
 ```
 
@@ -37,10 +37,10 @@ $ npm install promise-me
 
 ## API Reference
 
-#### promiseMe(function: function, params: array, context: object)
+#### promiseIt(function: function, params: array, context: object)
 Calls the given function (with provided params and context) and returns a promise until the callback is called.
 
-#### promiseMe.all([{ function: function, params: array, context: object }])
+#### promiseIt.all([{ function: function, params: array, context: object }])
 Calls array of functions (with provided params and context) and returns one promise that will resolve once all given functions were resolved.
 
 ## License
