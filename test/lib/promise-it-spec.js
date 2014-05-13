@@ -94,7 +94,7 @@ describe('promiseIt', function() {
         it('should resolve the promise with all arguments', function() {
             promiseIt(callbackFunc);
 
-            expect(resolveMock).have.been.calledWith('firstArg', 'secondArg');
+            expect(resolveMock).have.been.calledWith(['firstArg', 'secondArg']);
         });
     });
 
