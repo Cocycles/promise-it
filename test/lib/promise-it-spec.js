@@ -2,7 +2,7 @@
  * Require testing dependencies
  */
 var rewire = require('rewire'),
-    promiseMe = rewire('../../lib/promise-me'),
+    promiseIt = rewire('../../lib/promise-it'),
     chai = require('chai'),
     sinon = require('sinon'),
     sinonChai = require('sinon-chai'),
@@ -10,7 +10,7 @@ var rewire = require('rewire'),
 
 chai.use(sinonChai);
 
-describe('promiseMe', function() {
+describe('promiseIt', function() {
 
     /**
      * mock function for testing purposes
@@ -37,7 +37,7 @@ describe('promiseMe', function() {
         someObject = { console: 'boo', bar: 1, contextFunc: someFunction };
 
     /**
-     * Recreate qMock and monkey patch it to promiseMe before each test
+     * Recreate qMock and monkey patch it to promiseIt before each test
      */
     beforeEach(function() {
         resolveMock = sinon.stub();
@@ -54,51 +54,51 @@ describe('promiseMe', function() {
         testVal = null;
         someObject.spyFunc = sinon.stub();
 
-        promiseMe.__set__('q', qMock);
+        promiseIt.__set__('q', qMock);
     });
 
-    describe('#promiseMe()', function() {
+    describe('#promiseIt()', function() {
 
         it('should call provided function with given parameters', function() {
             var func = someObject.spyFunc;
-            promiseMe(func, ['firstArg', 'secondArg']);
+            promiseIt(func, ['firstArg', 'secondArg']);
 
             expect(func).have.been.calledWith('firstArg', 'secondArg');
         });
 
         it('should call provided function in given context', function() {
             var func  = someObject.contextFunc;
-            promiseMe(func, 'some string', someObject);
+            promiseIt(func, 'some string', someObject);
 
             expect(testVal).to.equal(someObject.console);
         });
 
         it('should create a new defer', function() {
-            promiseMe(someObject.spyFunc);
+            promiseIt(someObject.spyFunc);
 
             expect(qMock.defer).have.been.calledOnce;
         });
 
         it('should return a promise from the created defer', function() {
-            var promise = promiseMe(someObject.spyFunc);
+            var promise = promiseIt(someObject.spyFunc);
 
             expect(promise).to.deep.equal(promiseMock);
         });
 
         it('should use the global context if specific context was not passed', function() {
-            promiseMe(someObject.contextFunc);
+            promiseIt(someObject.contextFunc);
 
             expect(testVal).to.deep.equal(console);
         });
 
         it('should resolve the promise with all arguments', function() {
-            promiseMe(callbackFunc);
+            promiseIt(callbackFunc);
 
             expect(resolveMock).have.been.calledWith('firstArg', 'secondArg');
         });
     });
 
-    describe('#promiseMe.all()', function() {
+    describe('#promiseIt.all()', function() {
 
         function generateFunctionArray() {
             var i = 0,
@@ -116,18 +116,18 @@ describe('promiseMe', function() {
 
         it('should throw an error if given arg was not an array', function() {
             expect(function() {
-                promiseMe.all('');
+                promiseIt.all('');
             }).to.throw(Error);
         });
 
         it('should call q.allSettled with array of all given functions as promises', function() {
-            promiseMe.all(generateFunctionArray());
+            promiseIt.all(generateFunctionArray());
 
             expect(qMock.allSettled).have.been.calledWith([promiseMock, promiseMock, promiseMock, promiseMock, promiseMock]);
         });
 
         it('should return one promise as result of calling q.allSettled and returning it', function() {
-            expect(promiseMe.all(generateFunctionArray())).to.deep.equal(promiseMock);
+            expect(promiseIt.all(generateFunctionArray())).to.deep.equal(promiseMock);
         });
     });
 

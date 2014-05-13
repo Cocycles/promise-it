@@ -1,6 +1,6 @@
 {
-    "name": "promise-me",
-    "description": "Promises generation made easy with less code and complexity",
+    "name": "promise-it",
+    "description": "Promise It makes generation of promises easier and with much less code",
     "version": "0.1.0",
     "scripts": {
         "test": "mocha -R spec test/**/*.js"
