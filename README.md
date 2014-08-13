@@ -25,14 +25,23 @@ with Promise It it's much easier:
 
 ```javascript
 function someFunc() {
-  return promiseIt(call.something);
+  return promiseIt(callSomething, ['foo', 3], this).spread(function(str) {
+    console.log(str); // '3 foo'
+  });
 }
+
+function callSomething(str, num, callback) {
+  setTimeout(function() {
+    callback(num + ' ' + str);
+  }, 1000);
+}
+
 ```
 
 ## Installation
 
 ```bash
-$ npm install promise-me
+$ npm install promise-it
 ```
 
 ## API Reference
